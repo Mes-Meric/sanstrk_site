@@ -1,441 +1,348 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.65">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4689cc; -webkit-text-stroke: #4689cc}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #8cd3fe; -webkit-text-stroke: #8cd3fe}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #c27e65; -webkit-text-stroke: #c27e65}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d7378; -webkit-text-stroke: #6d7378}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca; min-height: 16.0px}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #71c083; -webkit-text-stroke: #71c083}
-    span.s1 {font-kerning: none; background-color: #171818}
-    span.s2 {font-kerning: none; color: #8cd3fe; background-color: #171818; -webkit-text-stroke: 0px #8cd3fe}
-    span.s3 {font-kerning: none; color: #6d6d6d; background-color: #171818; -webkit-text-stroke: 0px #6d6d6d}
-    span.s4 {font-kerning: none; color: #cacaca; background-color: #171818; -webkit-text-stroke: 0px #cacaca}
-    span.s5 {font-kerning: none; color: #c27e65; background-color: #171818; -webkit-text-stroke: 0px #c27e65}
-    span.s6 {font-kerning: none; color: #4689cc; background-color: #171818; -webkit-text-stroke: 0px #4689cc}
-    span.s7 {font-kerning: none; color: #d4d4d4; background-color: #171818; -webkit-text-stroke: 0px #d4d4d4}
-    span.s8 {font-kerning: none; color: #a7c598; background-color: #171818; -webkit-text-stroke: 0px #a7c598}
-    span.s9 {font-kerning: none}
-    span.s10 {font-kerning: none; color: #71c083; background-color: #171818; -webkit-text-stroke: 0px #71c083}
-    span.s11 {font-kerning: none; color: #6d7378; background-color: #171818; -webkit-text-stroke: 0px #6d7378}
-    span.s12 {font-kerning: none; color: #b76ff7; background-color: #171818; -webkit-text-stroke: 0px #b76ff7}
-    span.s13 {font-kerning: none; color: #f67c30; background-color: #171818; -webkit-text-stroke: 0px #f67c30}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANSTRK: Coming Soon</title>
+    <!-- Google Fonts for 'Anton', 'Roboto Mono', and 'Inter' -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy color management */
+        :root {
+            --bg-dark: #0A0A0F; /* Very dark background */
+            --accent-blue: #00FFFF; /* Cyan/Electric Blue for highlights */
+            --accent-green: #39FF14; /* Vibrant Neon Green for primary accents (replaces magenta) */
+            --text-light: #E0E0E0; /* Light grey for main text */
+            --text-mono: #A0A0A0; /* Slightly darker grey for monospace text */
+            --border-dark: #222222; /* Dark border color */
+            --hover-light-blue: rgba(0, 255, 255, 0.2); /* Transparent accent blue for hover states */
+            --hover-light-green: rgba(57, 255, 20, 0.2); /* Transparent accent green for hover states */
+            --section-bg: #1a1a22; /* Slightly lighter dark for section backgrounds */
+        }
+
+        /* Basic Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; /* Modern readable font for body */
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-green); /* Links hover to green */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%; /* Ensure container takes full width on small screens */
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent overlay */
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-dark);
+            position: sticky; /* Sticky header for navigation */
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow navigation items to wrap on smaller screens */
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            font-family: 'Roboto Mono', monospace; /* Monospace font for navigation */
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap; /* Prevent nav items from breaking */
+        }
+
+        nav ul li a:hover {
+            border-color: var(--accent-blue);
+            background-color: var(--hover-light-blue); /* Hover background uses accent blue */
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section - Modified for Holding Page */
+        .hero {
+            position: relative;
+            height: 100vh; /* Full viewport height for holding page */
+            display: flex;
+            flex-direction: column; /* Changed to column to stack elements */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            border-bottom: none; /* No border for a full-page hero */
+            flex-grow: 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Placeholder for glitchy/abstract background image */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://placehold.co/1500x800/111111/AAAAAA?text=ABSTRACT+NOISE+BACKGROUND') no-repeat center center/cover;
+            filter: grayscale(50%) contrast(120%); /* Subtle filter for old-school feel */
+            z-index: -1;
+            animation: backgroundPan 20s infinite alternate linear; /* Subtle background animation */
+        }
+
+        @keyframes backgroundPan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .hero-content {
+            z-index: 1; /* Ensure content is above the background */
+            padding: 20px; /* Add padding for smaller screens */
+        }
+
+        .hero-content h1 {
+            font-family: 'Anton', sans-serif; /* Bold, impactful headline font */
+            font-size: 6em; /* Larger for a prominent message */
+            text-transform: uppercase;
+            color: var(--accent-green); /* Main hero title now green */
+            text-shadow: 2px 2px 8px rgba(57, 255, 20, 0.7); /* More prominent glow */
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-family: 'Roboto Mono', monospace; /* Monospace for tagline */
+            font-size: 1.8em; /* Larger for readability */
+            color: var(--text-mono);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            margin-bottom: 30px;
+        }
+
+        .hero-content .notify-button,
+        .hero-content .audio-control-button { /* Apply styles to new audio control button */
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: var(--bg-dark);
+            padding: 15px 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 3px;
+            margin: 10px; /* Add some margin between buttons */
+        }
+
+        .hero-content .notify-button:hover,
+        .hero-content .audio-control-button:hover {
+            background-color: var(--accent-green);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Sections - Hidden for Holding Page */
+        section:not(#home) {
+            display: none; /* Hide all sections except the hero/home */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-dark);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9em;
+            color: var(--text-mono);
+            /* Removed margin-top: auto as hero takes full height */
+        }
+
+        .social-links {
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 15px;
+            color: var(--text-light);
+            font-size: 1.8em; /* Larger icons */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-green); /* Social links hover now green */
+            transform: scale(1.2); /* Scale effect on hover */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 767px) {
+            .hero-content h1 {
+                font-size: 3.5em;
+            }
+            .hero-content p {
+                font-size: 1.2em;
+            }
+            nav ul li {
+                margin: 5px 8px; /* Tighter spacing for mobile nav */
+            }
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"en"</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">SANSTRK: Coming Soon</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Google Fonts for 'Anton', 'Roboto Mono', and 'Inter' --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Anton&amp;family=Roboto+Mono:wght@400;700&amp;family=Inter:wght@400;700&amp;display=swap"</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* CSS Variables for easy color management */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">:root</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">--bg-dark:</span><span class="s4"> #0A0A0F</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Very dark background */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">--accent-blue:</span><span class="s4"> #00FFFF</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Cyan/Electric Blue for highlights */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">--accent-green:</span><span class="s4"> #39FF14</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Vibrant Neon Green for primary accents (replaces magenta) */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">--text-light:</span><span class="s4"> #E0E0E0</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Light grey for main text */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">--text-mono:</span><span class="s4"> #A0A0A0</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Slightly darker grey for monospace text */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">--border-dark:</span><span class="s4"> #222222</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Dark border color */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">--hover-light-blue:</span><span class="s4"> </span><span class="s5">rgba(</span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">255</span><span class="s7">,</span><span class="s4"> </span><span class="s8">255</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0.2</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Transparent accent blue for hover states */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">--hover-light-green:</span><span class="s4"> </span><span class="s5">rgba(</span><span class="s8">57</span><span class="s7">,</span><span class="s4"> </span><span class="s8">255</span><span class="s7">,</span><span class="s4"> </span><span class="s8">20</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0.2</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Transparent accent green for hover states */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">--section-bg:</span><span class="s4"> #1a1a22</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Slightly lighter dark for section backgrounds */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Basic Reset &amp; Global Styles */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">*</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">box-sizing:</span><span class="s1"> </span><span class="s5">border-box</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">body</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s4"> </span><span class="s10">'Inter'</span><span class="s7">,</span><span class="s4"> </span><span class="s5">sans-serif</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Modern readable font for body */</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">background-color:</span><span class="s4"> </span><span class="s5">var(--bg-dark)</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s4"> </span><span class="s1">var(--text-light)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">line-height:</span><span class="s1"> </span><span class="s8">1.6</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">overflow-x:</span><span class="s4"> </span><span class="s5">hidden</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Prevent horizontal scrolling */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">min-height:</span><span class="s4"> </span><span class="s8">100vh</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Ensure body takes full viewport height */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">flex-direction:</span><span class="s4"> </span><span class="s5">column</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">a</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s4"> </span><span class="s1">var(--accent-blue)</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">text-decoration:</span><span class="s4"> </span><span class="s5">none</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">transition:</span><span class="s4"> </span><span class="s1">color</span><span class="s4"> </span><span class="s8">0.3s</span><span class="s4"> </span><span class="s1">ease</span><span class="s7">,</span><span class="s4"> </span><span class="s1">background-color</span><span class="s4"> </span><span class="s8">0.3s</span><span class="s4"> </span><span class="s1">ease</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">a:hover</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s4"> </span><span class="s5">var(--accent-green)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Links hover to green */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.container</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">max-width:</span><span class="s1"> </span><span class="s8">1200px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin:</span><span class="s1"> </span><span class="s8">0</span><span class="s1"> </span><span class="s5">auto</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">20px</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s4"> </span><span class="s8">100%</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Ensure container takes full width on small screens */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Header &amp; Navigation */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">header</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s4"> </span><span class="s5">rgba(</span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0.5</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Slightly transparent overlay */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">20px</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">border-bottom:</span><span class="s4"> </span><span class="s8">1px</span><span class="s4"> </span><span class="s1">solid</span><span class="s4"> </span><span class="s1">var(--border-dark)</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s4"> </span><span class="s5">sticky</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Sticky header for navigation */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">top:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">1000</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">nav</span><span class="s1"> </span><span class="s6">ul</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">list-style:</span><span class="s1"> </span><span class="s5">none</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">justify-content:</span><span class="s4"> </span><span class="s5">center</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">flex-wrap:</span><span class="s4"> </span><span class="s5">wrap</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Allow navigation items to wrap on smaller screens */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">nav</span><span class="s1"> </span><span class="s6">ul</span><span class="s1"> </span><span class="s6">li</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin:</span><span class="s1"> </span><span class="s8">0</span><span class="s1"> </span><span class="s8">15px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">nav</span><span class="s1"> </span><span class="s6">ul</span><span class="s1"> </span><span class="s6">li</span><span class="s1"> </span><span class="s6">a</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s4"> </span><span class="s10">'Roboto Mono'</span><span class="s7">,</span><span class="s4"> </span><span class="s5">monospace</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Monospace font for navigation */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s8">1rem</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">text-transform:</span><span class="s4"> </span><span class="s5">uppercase</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">5px</span><span class="s1"> </span><span class="s8">10px</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">border:</span><span class="s4"> </span><span class="s8">1px</span><span class="s4"> </span><span class="s1">solid</span><span class="s4"> </span><span class="s1">transparent</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">transition:</span><span class="s4"> </span><span class="s1">border-color</span><span class="s4"> </span><span class="s8">0.3s</span><span class="s4"> </span><span class="s1">ease</span><span class="s7">,</span><span class="s4"> </span><span class="s1">background-color</span><span class="s4"> </span><span class="s8">0.3s</span><span class="s4"> </span><span class="s1">ease</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">white-space:</span><span class="s4"> </span><span class="s5">nowrap</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Prevent nav items from breaking */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">nav</span><span class="s4"> </span><span class="s1">ul</span><span class="s4"> </span><span class="s1">li</span><span class="s4"> </span><span class="s1">a:hover</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">border-color:</span><span class="s4"> </span><span class="s1">var(--accent-blue)</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s4"> </span><span class="s5">var(--hover-light-blue)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Hover background uses accent blue */</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s4"> </span><span class="s1">var(--accent-blue)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Hero Section - Modified for Holding Page */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">.hero</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s1"> </span><span class="s5">relative</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s4"> </span><span class="s8">100vh</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Full viewport height for holding page */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">flex-direction:</span><span class="s4"> </span><span class="s5">column</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Changed to column to stack elements */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">align-items:</span><span class="s1"> </span><span class="s5">center</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">justify-content:</span><span class="s4"> </span><span class="s5">center</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-align:</span><span class="s1"> </span><span class="s5">center</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">overflow:</span><span class="s1"> </span><span class="s5">hidden</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">border-bottom:</span><span class="s4"> </span><span class="s5">none</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* No border for a full-page hero */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">flex-grow:</span><span class="s1"> </span><span class="s8">1</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.hero::before</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">content:</span><span class="s1"> </span><span class="s10">''</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s1"> </span><span class="s5">absolute</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">top:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">left:</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s8">100%</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s8">100%</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">/* Placeholder for glitchy/abstract background image */</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">background:</span><span class="s4"> </span><span class="s1">linear-gradient(rgba(</span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0.7</span><span class="s1">)</span><span class="s7">,</span><span class="s4"> </span><span class="s1">rgba(</span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0.7</span><span class="s1">))</span><span class="s7">,</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s5">url</span><span class="s7">(</span><span class="s1">'https://placehold.co/1500x800/111111/AAAAAA?text=ABSTRACT+NOISE+BACKGROUND'</span><span class="s7">)</span><span class="s4"> </span><span class="s5">no-repeat</span><span class="s4"> </span><span class="s5">center</span><span class="s4"> </span><span class="s5">center</span><span class="s7">/</span><span class="s5">cover</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">filter:</span><span class="s4"> </span><span class="s5">grayscale(</span><span class="s8">50%</span><span class="s5">)</span><span class="s4"> </span><span class="s5">contrast(</span><span class="s8">120%</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Subtle filter for old-school feel */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s1"> </span><span class="s8">-1</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">animation:</span><span class="s4"> </span><span class="s1">backgroundPan</span><span class="s4"> </span><span class="s8">20s</span><span class="s4"> </span><span class="s1">infinite</span><span class="s4"> </span><span class="s1">alternate</span><span class="s4"> </span><span class="s1">linear</span><span class="s7">;</span><span class="s4"> </span><span class="s11">/* Subtle background animation */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s12">@keyframes</span><span class="s4"> </span><span class="s1">backgroundPan</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s8">0%</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">background-position:</span><span class="s4"> </span><span class="s8">0%</span><span class="s4"> </span><span class="s8">0%</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s8">100%</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">background-position:</span><span class="s4"> </span><span class="s8">100%</span><span class="s4"> </span><span class="s8">100%</span><span class="s7">;</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.hero-content</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">z-index:</span><span class="s4"> </span><span class="s8">1</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Ensure content is above the background */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s4"> </span><span class="s8">20px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Add padding for smaller screens */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.hero-content</span><span class="s4"> </span><span class="s1">h1</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s4"> </span><span class="s10">'Anton'</span><span class="s7">,</span><span class="s4"> </span><span class="s5">sans-serif</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Bold, impactful headline font */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s4"> </span><span class="s8">6em</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Larger for a prominent message */</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">text-transform:</span><span class="s4"> </span><span class="s5">uppercase</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s4"> </span><span class="s5">var(--accent-green)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Main hero title now green */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">text-shadow:</span><span class="s4"> </span><span class="s8">2px</span><span class="s4"> </span><span class="s8">2px</span><span class="s4"> </span><span class="s8">8px</span><span class="s4"> </span><span class="s5">rgba(</span><span class="s8">57</span><span class="s7">,</span><span class="s4"> </span><span class="s8">255</span><span class="s7">,</span><span class="s4"> </span><span class="s8">20</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0.7</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* More prominent glow */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">line-height:</span><span class="s1"> </span><span class="s8">1</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">20px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.hero-content</span><span class="s4"> </span><span class="s1">p</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s4"> </span><span class="s10">'Roboto Mono'</span><span class="s7">,</span><span class="s4"> </span><span class="s5">monospace</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Monospace for tagline */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s4"> </span><span class="s8">1.8em</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Larger for readability */</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s4"> </span><span class="s1">var(--text-mono)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-shadow:</span><span class="s1"> </span><span class="s8">1px</span><span class="s1"> </span><span class="s8">1px</span><span class="s1"> </span><span class="s8">3px</span><span class="s1"> </span><span class="s5">rgba(</span><span class="s8">0</span><span class="s7">,</span><span class="s1"> </span><span class="s8">0</span><span class="s7">,</span><span class="s1"> </span><span class="s8">0</span><span class="s7">,</span><span class="s1"> </span><span class="s8">0.8</span><span class="s5">)</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">margin-bottom:</span><span class="s4"> </span><span class="s8">30px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.hero-content</span><span class="s4"> </span><span class="s1">.notify-button</span><span class="s7">,</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">.hero-content</span><span class="s4"> </span><span class="s6">.audio-control-button</span><span class="s4"> </span><span class="s7">{</span><span class="s4"> </span><span class="s1">/* Apply styles to new audio control button */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">inline-block</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s4"> </span><span class="s1">var(--accent-blue)</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s4"> </span><span class="s1">var(--bg-dark)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">15px</span><span class="s1"> </span><span class="s8">30px</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">text-transform:</span><span class="s4"> </span><span class="s5">uppercase</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-weight:</span><span class="s1"> </span><span class="s5">bold</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s8">1.2em</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border:</span><span class="s1"> </span><span class="s5">none</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">cursor:</span><span class="s1"> </span><span class="s5">pointer</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">transition:</span><span class="s4"> </span><span class="s1">background-color</span><span class="s4"> </span><span class="s8">0.3s</span><span class="s4"> </span><span class="s1">ease</span><span class="s7">,</span><span class="s4"> </span><span class="s1">transform</span><span class="s4"> </span><span class="s8">0.2s</span><span class="s4"> </span><span class="s1">ease</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s8">2px</span><span class="s1"> </span><span class="s8">2px</span><span class="s1"> </span><span class="s8">5px</span><span class="s1"> </span><span class="s5">rgba(</span><span class="s8">0</span><span class="s7">,</span><span class="s1"> </span><span class="s8">0</span><span class="s7">,</span><span class="s1"> </span><span class="s8">0</span><span class="s7">,</span><span class="s1"> </span><span class="s8">0.5</span><span class="s5">)</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">border-radius:</span><span class="s4"> </span><span class="s8">3px</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">margin:</span><span class="s4"> </span><span class="s8">10px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Add some margin between buttons */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.hero-content</span><span class="s4"> </span><span class="s1">.notify-button:hover</span><span class="s7">,</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.hero-content</span><span class="s4"> </span><span class="s1">.audio-control-button:hover</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s4"> </span><span class="s1">var(--accent-green)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transform:</span><span class="s1"> </span><span class="s5">translateY(</span><span class="s8">-2px</span><span class="s5">)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Main Content Sections - Hidden for Holding Page */</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">section:not</span><span class="s4">(</span><span class="s1">#home</span><span class="s4">) </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s4"> </span><span class="s5">none</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Hide all sections except the hero/home */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Footer */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">footer</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">text-align:</span><span class="s1"> </span><span class="s5">center</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s8">40px</span><span class="s1"> </span><span class="s8">0</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">border-top:</span><span class="s4"> </span><span class="s8">1px</span><span class="s4"> </span><span class="s1">solid</span><span class="s4"> </span><span class="s1">var(--border-dark)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s1"> </span><span class="s10">'Roboto Mono'</span><span class="s7">,</span><span class="s1"> </span><span class="s5">monospace</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s8">0.9em</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s4"> </span><span class="s1">var(--text-mono)</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">/* Removed margin-top: auto as hero takes full height */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.social-links</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-top:</span><span class="s1"> </span><span class="s8">25px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.social-links</span><span class="s4"> </span><span class="s1">a</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">inline-block</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin:</span><span class="s1"> </span><span class="s8">0</span><span class="s1"> </span><span class="s8">15px</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s4"> </span><span class="s1">var(--text-light)</span><span class="s7">;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">font-size:</span><span class="s4"> </span><span class="s8">1.8em</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Larger icons */</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">transition:</span><span class="s4"> </span><span class="s1">color</span><span class="s4"> </span><span class="s8">0.3s</span><span class="s4"> </span><span class="s1">ease</span><span class="s7">,</span><span class="s4"> </span><span class="s1">transform</span><span class="s4"> </span><span class="s8">0.3s</span><span class="s4"> </span><span class="s1">ease</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.social-links</span><span class="s4"> </span><span class="s1">a:hover</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s4"> </span><span class="s5">var(--accent-green)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Social links hover now green */</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">transform:</span><span class="s4"> </span><span class="s5">scale(</span><span class="s8">1.2</span><span class="s5">)</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Scale effect on hover */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">/* Responsive Adjustments */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>@</span><span class="s6">media</span><span class="s1"> (</span><span class="s6">max-width:</span><span class="s1"> 767</span><span class="s6">px</span><span class="s1">) </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>.hero-content h1 {</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s8">3.5em</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s6">.hero-content</span><span class="s1"> </span><span class="s6">p</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s2">font-size:</span><span class="s1"> </span><span class="s8">1.2em</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s6">nav</span><span class="s1"> </span><span class="s6">ul</span><span class="s1"> </span><span class="s6">li</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s2">margin:</span><span class="s4"> </span><span class="s8">5px</span><span class="s4"> </span><span class="s8">8px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Tighter spacing for mobile nav */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">header</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">nav</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">li</span><span class="s3">&gt;&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s5">"#home"</span><span class="s3">&gt;</span><span class="s4">SANSTRK //</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;&lt;/</span><span class="s6">li</span><span class="s3">&gt;</span><span class="s4"> </span><span class="s1">&lt;!-- Simplified nav for holding page --&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">ul</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">nav</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">header</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">main</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"home"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hero"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hero-content"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h1</span><span class="s3">&gt;</span><span class="s1">SANSTRK // COMING SOON</span><span class="s3">&lt;/</span><span class="s6">h1</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span><span class="s1">We're tuning the frequencies and calibrating the modules. </span><span class="s3">&lt;</span><span class="s6">br</span><span class="s3">&gt;</span><span class="s1">Expect experimental web audio and musings on art, tech, and AI soon.</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Audio Element --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">audio</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"backgroundAudio"</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"melodies.mp3"</span><span class="s4"> </span><span class="s2">autoplay</span><span class="s4"> </span><span class="s2">loop</span><span class="s4"> </span><span class="s2">preload</span><span class="s3">=</span><span class="s1">"auto"</span><span class="s3">&gt;&lt;/</span><span class="s6">audio</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Control Button --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"audioControlButton"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"audio-control-button"</span><span class="s3">&gt;</span><span class="s4">Stop Sound //</span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"mailto:your_email@example.com"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"notify-button"</span><span class="s3">&gt;</span><span class="s4">Notify Me //</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">section</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- The following sections are commented out to hide them for the holding page. --&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- To reactivate them, simply remove the '&lt;!--' and '--&gt;</span><span class="s4">' tags around each section. --&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s11">&lt;!--</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="about" class="about"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="container"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2&gt;// About //&lt;/h2&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="about-grid"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="about-text"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p&gt;&lt;strong&gt;SANSTRK&lt;/strong&gt; is a personal project born out of my frustration with the commercialization of the internet. There was a time when the web was filled with strange, wonderful, and random websites that existed purely to explore the internet as a medium for artistic experimentation, not for profit.&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p&gt;My fascination with sound began around the age of 10, tinkering with a single oscillator program on a **Commodore Vic-20**. It couldn't do much, just basic waveforms and ADSR, but it sparked an obsession that's stuck with me ever since.&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p&gt;The core purpose of this site is to explore how we can genuinely **utilize AI as a tool and collaborator to create sound**. It's about intentionality and pushing boundaries, not passive generation.&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p&gt;As John Cage famously stated in his 1937 "The Future of Music: Credo": *"I believe that the use of noise to make music will continue and increase until we reach a music produced through the use of electrical instruments which will make available for musical purposes any and all sounds that can be heard."* That vision feels more relevant than ever.&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="about-image"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;img src="https://placehold.co/400x400/0A0A0F/39FF14?text=INTERNET+SOUL" alt="Internet Soul Placeholder" onerror="this.src='https://placehold.co/400x400/0A0A0F/39FF14?text=IMAGE+MISSING';"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="sound" class="sound"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="container"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2&gt;// Sonic Explorations //&lt;/h2&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p style="text-align: center; font-family: 'Roboto Mono', monospace; font-size: 1.1em; color: var(--text-mono); margin-bottom: 40px;"&gt;Here you'll find our latest sonic explorations, designed as interactive web audio applications.&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="sound-grid"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="track-item"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Hypnotic Oscillator&lt;/h3&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p&gt;An interactive web app generating evolving hypnotic tones with subtle LFO modulation. [Experiment 001]&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="listen-button"&gt;Explore App //&lt;/a&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="track-item"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Glitch Drum Machine&lt;/h3&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p&gt;A browser-based drum sequencer with controlled audio glitch effects. [Experiment 002]&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="listen-button"&gt;Explore App //&lt;/a&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="track-item"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Ambient Texture Generator&lt;/h3&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Create infinite, shifting ambient soundscapes with dynamic parameters. [Experiment 003]&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="listen-button"&gt;Explore App //&lt;/a&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="track-item"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Cybernetic Choir&lt;/h3&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Synthetic vocal textures responding to mouse movement. [Experiment 004]&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="listen-button"&gt;Explore App //&lt;/a&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="musings" class="musings"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="container"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2&gt;// Musings //&lt;/h2&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="musings-content"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;This space is dedicated to deeper thoughts and explorations on art, technology, and the evolving digital landscape. Expect reflections on web audio, the philosophy of digital creation, and the nuanced role of AI in shaping our creative futures.&lt;/p&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;// Recent Reflections //&lt;/h3&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;ul&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;li&gt;The diminishing returns of "instant" AI art generation.&lt;/li&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Exploring microtonal synthesis in the browser.&lt;/li&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;li&gt;The tactile interface: bringing physical control to web audio.&lt;/li&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Beyond the algorithm: finding serendipity in digital processes.&lt;/li&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;We believe in building, experimenting, and critically engaging with the tools at our disposal. True artistry lies not just in the output, but in the intentionality and human spirit woven into every process. Join us as we continue to push the boundaries of what's possible, off the beaten track.&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="contact" class="contact"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="container"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2&gt;// Connect //&lt;/h2&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;form class="contact-form"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;label for="name"&gt;Name:&lt;/label&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;input type="text" id="name" name="name" required&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;label for="email"&gt;Email:&lt;/label&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;input type="email" id="email" name="email" required&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;label for="message"&gt;Message:&lt;/label&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;textarea id="message" name="message" rows="8" required&gt;&lt;/textarea&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button type="submit"&gt;// Send Message //&lt;/button&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/form&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>--&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">main</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">footer</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span><span class="s1">&amp;copy; 2025 SANSTRK. All Rights Reserved. // PLUR // Melbourne-NZ Connection //</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"social-links"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Simple text placeholders for social links. Ideally, use icon fonts (e.g., Font Awesome). --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">aria-label</span><span class="s3">=</span><span class="s1">"Bandcamp"</span><span class="s3">&gt;&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">style</span><span class="s3">=</span><span class="s1">"font-family: 'Anton', sans-serif;"</span><span class="s3">&gt;</span><span class="s4">BC</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">aria-label</span><span class="s3">=</span><span class="s1">"Soundcloud"</span><span class="s3">&gt;&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">style</span><span class="s3">=</span><span class="s1">"font-family: 'Anton', sans-serif;"</span><span class="s3">&gt;</span><span class="s4">SC</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">aria-label</span><span class="s3">=</span><span class="s1">"Instagram"</span><span class="s3">&gt;&lt;</span><span class="s6">span</span><span class="s4"> </span><span class="s2">style</span><span class="s3">=</span><span class="s1">"font-family: 'Anton', sans-serif;"</span><span class="s3">&gt;</span><span class="s4">IG</span><span class="s3">&lt;/</span><span class="s6">span</span><span class="s3">&gt;&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">footer</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Get references to the audio element and the control button</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">const</span><span class="s1"> backgroundAudio </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s10">'backgroundAudio'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">const</span><span class="s1"> audioControlButton </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s10">'audioControlButton'</span><span class="s7">);</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Flag to track audio state</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s12">let</span><span class="s4"> isPlaying </span><span class="s7">=</span><span class="s4"> </span><span class="s12">true</span><span class="s7">;</span><span class="s4"> </span><span class="s1">// Audio starts playing due to autoplay</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Function to toggle audio playback and button text</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">function</span><span class="s1"> toggleAudioPlayback</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s12">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">isPlaying</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>backgroundAudio</span><span class="s7">.</span><span class="s1">pause</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>audioControlButton</span><span class="s7">.</span><span class="s1">textContent </span><span class="s7">=</span><span class="s1"> </span><span class="s10">'Play Sound //'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span><span class="s1"> </span><span class="s12">else</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">// To handle browser autoplay policies, try to play on user interaction</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>backgroundAudio</span><span class="s7">.</span><span class="s1">play</span><span class="s7">().</span><span class="s12">catch</span><span class="s7">(</span><span class="s1">error </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>console</span><span class="s7">.</span><span class="s1">warn</span><span class="s7">(</span><span class="s10">'Autoplay prevented:'</span><span class="s7">,</span><span class="s1"> error</span><span class="s7">);</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s1">// Inform the user if autoplay was explicitly blocked</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s1">// (e.g., show a temporary message)</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">});</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>audioControlButton</span><span class="s7">.</span><span class="s1">textContent </span><span class="s7">=</span><span class="s1"> </span><span class="s10">'Stop Sound //'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>isPlaying </span><span class="s7">=</span><span class="s1"> </span><span class="s7">!</span><span class="s1">isPlaying</span><span class="s7">;</span><span class="s1"> </span><span class="s11">// Toggle the state</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Add event listener to the button</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>audioControlButton</span><span class="s7">.</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s10">'click'</span><span class="s7">,</span><span class="s1"> toggleAudioPlayback</span><span class="s7">);</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Optional: Handle cases where autoplay is blocked by the browser.</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Modern browsers often block autoplay with sound unless there's user interaction.</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// This attempts to play the audio once the user interacts with *any* part of the page.</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// A more robust solution might involve a specific "Play Sound" button that is visible</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// immediately if autoplay fails.</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>document</span><span class="s7">.</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s10">'DOMContentLoaded'</span><span class="s7">,</span><span class="s1"> </span><span class="s7">()</span><span class="s1"> </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Check if audio is already playing (might be blocked)</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s12">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">backgroundAudio</span><span class="s7">.</span><span class="s1">paused </span><span class="s7">&amp;&amp;</span><span class="s1"> backgroundAudio</span><span class="s7">.</span><span class="s1">readyState </span><span class="s7">&gt;=</span><span class="s1"> </span><span class="s13">2</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> </span><span class="s11">// readyState 2 means enough data to play</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                 </span>isPlaying </span><span class="s7">=</span><span class="s4"> </span><span class="s12">false</span><span class="s7">;</span><span class="s4"> </span><span class="s1">// Initial state is paused if autoplay failed</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                 </span>audioControlButton</span><span class="s7">.</span><span class="s1">textContent </span><span class="s7">=</span><span class="s1"> </span><span class="s10">'Play Sound //'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span><span class="s1"> </span><span class="s12">else</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">// If it attempts to autoplay, assume it's playing initially</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>isPlaying </span><span class="s7">=</span><span class="s1"> </span><span class="s12">true</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>audioControlButton</span><span class="s7">.</span><span class="s1">textContent </span><span class="s7">=</span><span class="s1"> </span><span class="s10">'Stop Sound //'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">});</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Ensure the audio tries to play when the document is ready (important for Safari/iOS)</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// This is a common workaround for iOS autoplay restrictions.</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>window</span><span class="s7">.</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s10">'load'</span><span class="s7">,</span><span class="s1"> </span><span class="s7">()</span><span class="s1"> </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s12">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">backgroundAudio</span><span class="s7">.</span><span class="s1">paused</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>backgroundAudio</span><span class="s7">.</span><span class="s1">play</span><span class="s7">().</span><span class="s12">catch</span><span class="s7">(</span><span class="s1">error </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>console</span><span class="s7">.</span><span class="s1">warn</span><span class="s7">(</span><span class="s10">'Autoplay on load prevented:'</span><span class="s7">,</span><span class="s1"> error</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>isPlaying </span><span class="s7">=</span><span class="s1"> </span><span class="s12">false</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>audioControlButton</span><span class="s7">.</span><span class="s1">textContent </span><span class="s7">=</span><span class="s1"> </span><span class="s10">'Play Sound //'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">});</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">});</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
+    <header>
+        <nav class="container">
+            <ul>
+                <li><a href="#home">SANSTRK //</a></li> <!-- Simplified nav for holding page -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>SANSTRK // COMING SOON</h1>
+                <p>We're tuning the frequencies and calibrating the modules. <br>Expect experimental web audio and musings on art, tech, and AI soon.</p>
+
+                <!-- Audio Element -->
+                <audio id="backgroundAudio" src="melodies.mp3" autoplay loop preload="auto"></audio>
+
+                <!-- Control Button -->
+                <button id="audioControlButton" class="audio-control-button">Stop Sound //</button>
+                <a href="mailto:your_email@example.com" class="notify-button">Notify Me //</a>
+            </div>
+        </section>
+
+        <!-- The following sections are commented out to hide them for the holding page. -->
+        <!-- To reactivate them, simply remove the '<!--' and '-->' tags around each section. -->
+
+        <!--
+        <section id="about" class="about">
+            <div class="container">
+                <h2>// About //</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p><strong>SANSTRK</strong> is a personal project born out of my frustration with the commercialization of the internet. There was a time when the web was filled with strange, wonderful, and random websites that existed purely to explore the internet as a medium for artistic experimentation, not for profit.</p>
+                        <p>My fascination with sound began around the age of 10, tinkering with a single oscillator program on a **Commodore Vic-20**. It couldn't do much, just basic waveforms and ADSR, but it sparked an obsession that's stuck with me ever since.</p>
+                        <p>The core purpose of this site is to explore how we can genuinely **utilize AI as a tool and collaborator to create sound**. It's about intentionality and pushing boundaries, not passive generation.</p>
+                        <p>As John Cage famously stated in his 1937 "The Future of Music: Credo": *"I believe that the use of noise to make music will continue and increase until we reach a music produced through the use of electrical instruments which will make available for musical purposes any and all sounds that can be heard."* That vision feels more relevant than ever.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://placehold.co/400x400/0A0A0F/39FF14?text=INTERNET+SOUL" alt="Internet Soul Placeholder" onerror="this.src='https://placehold.co/400x400/0A0A0F/39FF14?text=IMAGE+MISSING';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sound" class="sound">
+            <div class="container">
+                <h2>// Sonic Explorations //</h2>
+                <p style="text-align: center; font-family: 'Roboto Mono', monospace; font-size: 1.1em; color: var(--text-mono); margin-bottom: 40px;">Here you'll find our latest sonic explorations, designed as interactive web audio applications.</p>
+                <div class="sound-grid">
+                    <div class="track-item">
+                        <h3>Hypnotic Oscillator</h3>
+                        <p>An interactive web app generating evolving hypnotic tones with subtle LFO modulation. [Experiment 001]</p>
+                        <a href="#" class="listen-button">Explore App //</a>
+                    </div>
+                    <div class="track-item">
+                        <h3>Glitch Drum Machine</h3>
+                        <p>A browser-based drum sequencer with controlled audio glitch effects. [Experiment 002]</p>
+                        <a href="#" class="listen-button">Explore App //</a>
+                    </div>
+                    <div class="track-item">
+                        <h3>Ambient Texture Generator</h3>
+                        <p>Create infinite, shifting ambient soundscapes with dynamic parameters. [Experiment 003]</p>
+                        <a href="#" class="listen-button">Explore App //</a>
+                    </div>
+                    <div class="track-item">
+                        <h3>Cybernetic Choir</h3>
+                        <p>Synthetic vocal textures responding to mouse movement. [Experiment 004]</p>
+                        <a href="#" class="listen-button">Explore App //</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="musings" class="musings">
+            <div class="container">
+                <h2>// Musings //</h2>
+                <div class="musings-content">
+                    <p>This space is dedicated to deeper thoughts and explorations on art, technology, and the evolving digital landscape. Expect reflections on web audio, the philosophy of digital creation, and the nuanced role of AI in shaping our creative futures.</p>
+
+                    <h3>// Recent Reflections //</h3>
+                    <ul>
+                        <li>The diminishing returns of "instant" AI art generation.</li>
+                        <li>Exploring microtonal synthesis in the browser.</li>
+                        <li>The tactile interface: bringing physical control to web audio.</li>
+                        <li>Beyond the algorithm: finding serendipity in digital processes.</li>
+                    </ul>
+
+                    <p>We believe in building, experimenting, and critically engaging with the tools at our disposal. True artistry lies not just in the output, but in the intentionality and human spirit woven into every process. Join us as we continue to push the boundaries of what's possible, off the beaten track.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>// Connect //</h2>
+                <form class="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="8" required></textarea>
+
+                    <button type="submit">// Send Message //</button>
+                </form>
+            </div>
+        </section>
+        -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SANSTRK. All Rights Reserved. // PLUR // Melbourne-NZ Connection //</p>
+            <div class="social-links">
+                <!-- Simple text placeholders for social links. Ideally, use icon fonts (e.g., Font Awesome). -->
+                <a href="#" aria-label="Bandcamp"><span style="font-family: 'Anton', sans-serif;">BC</span></a>
+                <a href="#" aria-label="Soundcloud"><span style="font-family: 'Anton', sans-serif;">SC</span></a>
+                <a href="#" aria-label="Instagram"><span style="font-family: 'Anton', sans-serif;">IG</span></a>
+            </div>
+        </div>
+    </footer>
+<script src="script.js"></script>
 </body>
 </html>
